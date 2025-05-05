@@ -21,9 +21,9 @@ function renderProducts(){
     productList.innerHTML = "";
     products.forEach(product=>{
         const productDiv = document.createElement("div")
-        // <img src=${product.image} alt="image">
         productDiv.innerHTML = `
                 <div class="product">
+                    <img src=${product.image} alt="image">
                     <div class="product-info">
                         <h3>${product.name}</h3>
                         <p>
@@ -54,7 +54,7 @@ function renderCart(){
                     <img src=${item.image} alt="image">
                     <div class="cart-item-info">
                         <h3>${item.name}</h3>
-                        <p>Price : $${item.price} X ${item.quantity} = TK${item.price * item.quantity}</p>
+                        <p>Price : $${item.price.toFixed(2)} X ${item.quantity} = TK${(item.price.toFixed(2) * item.quantity).toFixed(2)}</p>
                         <div class="quantity">
                             <button class="decrease" data-id="${item.id}">-</button>
                             <span>${item.quantity}</span>
